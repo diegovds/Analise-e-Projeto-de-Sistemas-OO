@@ -14,6 +14,7 @@ public class CamisetaEstampada extends Camiseta {
     
     public CamisetaEstampada(TamanhoCamiseta c) {
         super(c);
+        preco = 25.0;
     }
     
     @Override

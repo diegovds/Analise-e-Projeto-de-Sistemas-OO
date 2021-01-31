@@ -10,15 +10,20 @@ package bridge;
  * @author diego
  */
 public abstract class Camiseta {
-    
+
+    double preco;
     protected TamanhoCamiseta tamanho;
-    
+
     public Camiseta(TamanhoCamiseta t) {
         tamanho = t;
     }
 
     public void exibeCamiseta(String titulo) {
-	tamanho.exibeCamiseta(titulo);
+        tamanho.exibeCamiseta(titulo);
+    }
+
+    public double getPreco() {
+        return preco;
     }
 
     public abstract void exibe();

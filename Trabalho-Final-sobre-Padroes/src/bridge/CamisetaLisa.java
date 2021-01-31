@@ -13,6 +13,7 @@ public class CamisetaLisa extends Camiseta {
     
     public CamisetaLisa(TamanhoCamiseta c) {
         super(c);
+        preco = 20.0;
     }
     
     @Override
