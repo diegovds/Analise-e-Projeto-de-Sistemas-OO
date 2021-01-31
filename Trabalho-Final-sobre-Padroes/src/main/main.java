@@ -8,10 +8,10 @@ import bridge.CamisetaLisa;
 import bridge.TamanhoCamisetaP;
 import bridge.TamanhoCamisetaM;
 import bridge.TamanhoCamisetaG;
-import chain.BancoA;
-import chain.BancoB;
-import chain.BancoChain;
-import chain.IDBancos;
+import chain.Cartao;
+import chain.Dinheiro;
+import chain.IDPagamento;
+import chain.PagamentoChain;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -29,8 +29,8 @@ public class main {
      */
     public static void main(String[] args) throws Exception {
 
-        BancoChain bancos = new BancoA();
-        bancos.setNext(new BancoB());
+        PagamentoChain pagamentos = new Dinheiro();
+        pagamentos.setNext(new Cartao());
         
         BancoProxy banco = new BancoProxy("marcos", "12345");
         
@@ -51,7 +51,7 @@ public class main {
 
             System.out.println();
 
-            bancos.efetuarPagamento(IDBancos.bancoB);
+            pagamentos.efetuarPagamento(IDPagamento.dinheiro);
 
         } else {
             System.out.println("Usuário sem acesso");
