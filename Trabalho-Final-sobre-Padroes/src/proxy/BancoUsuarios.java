@@ -8,7 +8,7 @@ public class BancoUsuarios {
     }
 
     String getUsuario() {
-        return ("Acesso do usuário: " + nome);
+        return (nome);
     }
     
 }
