@@ -29,28 +29,42 @@ public class main {
      */
     public static void main(String[] args) throws Exception {
 
+        double total = 0.0, preco;
         PagamentoChain pagamentos = new Dinheiro();
         pagamentos.setNext(new Cartao());
-        
+
         BancoProxy banco = new BancoProxy("marcos", "12345");
-        
+
         if (banco.getUsuario() != null) {
             System.out.println("Usuário: " + banco.getUsuario());
             System.out.println("\nLista de compras:");
 
             Camiseta camiseta = new CamisetaEstampada(new TamanhoCamisetaP());
             camiseta.exibe();
+            preco = camiseta.getPreco();
+            System.out.println(" - R$" + preco);
+            total = total + preco;
+            
             camiseta = new CamisetaEstampada(new TamanhoCamisetaM());
             camiseta.exibe();
+            preco = camiseta.getPreco();
+            System.out.println(" - R$" + preco);
+            total = total + preco;
 
             camiseta = new CamisetaLisa(new TamanhoCamisetaG());
             camiseta.exibe();
+            preco = camiseta.getPreco();
+            System.out.println(" - R$" + preco);
+            total = total + preco;
 
             camiseta = new CamisetaListrada(new TamanhoCamisetaM());
             camiseta.exibe();
+            preco = camiseta.getPreco();
+            System.out.println(" - R$" + preco);
+            total = total + preco;
 
-            System.out.println();
-
+            System.out.println("\nTotal da compra = " +total+ "\n");
+            
             pagamentos.efetuarPagamento(IDPagamento.dinheiro);
 
         } else {
