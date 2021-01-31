@@ -13,7 +13,7 @@ public class TamanhoCamisetaM implements TamanhoCamiseta {
     
     @Override
     public void exibeCamiseta(String titulo) {
-	System.out.println(titulo + " - Tamanho M");
+	System.out.print(titulo + " - Tamanho M");
     }
     
 }
