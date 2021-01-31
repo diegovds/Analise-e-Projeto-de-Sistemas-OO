@@ -31,7 +31,9 @@ public class main {
 
         BancoChain bancos = new BancoA();
         bancos.setNext(new BancoB());
+        
         BancoProxy banco = new BancoProxy("marcos", "12345");
+        
         if (banco.getUsuario() != null) {
             System.out.println("Usuário: " + banco.getUsuario());
             System.out.println("\nLista de compras:");
