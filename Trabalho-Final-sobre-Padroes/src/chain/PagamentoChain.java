@@ -10,17 +10,17 @@ package chain;
  * @author diego
  */
 
-public abstract class BancoChain {
+public abstract class PagamentoChain {
 
-	protected BancoChain next;
-	protected IDBancos identificadorDoBanco;
+	protected PagamentoChain next;
+	protected IDPagamento identificadorDoPagamento;
 
-	public BancoChain(IDBancos id) {
+	public PagamentoChain(IDPagamento id) {
 		next = null;
-		identificadorDoBanco = id;
+		identificadorDoPagamento = id;
 	}
 
-	public void setNext(BancoChain forma) {
+	public void setNext(PagamentoChain forma) {
 		if (next == null) {
 			next = forma;
 		} else {
@@ -28,19 +28,19 @@ public abstract class BancoChain {
 		}
 	}
 
-	public void efetuarPagamento(IDBancos id) throws Exception {
+	public void efetuarPagamento(IDPagamento id) throws Exception {
 		if (podeEfetuarPagamento(id)) {
 			efetuaPagamento();
 		} else {
 			if (next == null) {
-				throw new Exception("Banco não cadastrado");
+				throw new Exception("Forma de pagamento não cadastrada");
 			}
 			next.efetuarPagamento(id);
 		}
 	}
 
-	private boolean podeEfetuarPagamento(IDBancos id) {
-		if (identificadorDoBanco == id) {
+	private boolean podeEfetuarPagamento(IDPagamento id) {
+		if (identificadorDoPagamento == id) {
 			return true;
 		}
 		return false;

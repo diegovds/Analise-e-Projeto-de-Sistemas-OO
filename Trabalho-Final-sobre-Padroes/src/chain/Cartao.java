@@ -10,14 +10,15 @@ package chain;
  * @author diego
  */
 
-public class BancoA extends BancoChain {
+public class Cartao extends PagamentoChain {
 
-	public BancoA() {
-		super(IDBancos.bancoA);
+	public Cartao() {
+		super(IDPagamento.cartao);
 	}
 
 	@Override
 	protected void efetuaPagamento() {
-		System.out.println("Pagamento autorizado no banco A");
+		System.out.println("Pagamento realizado com cartão");
 	}
+
 }

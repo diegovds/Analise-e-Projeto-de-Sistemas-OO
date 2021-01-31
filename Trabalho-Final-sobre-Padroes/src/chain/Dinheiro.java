@@ -10,6 +10,14 @@ package chain;
  * @author diego
  */
 
-public enum IDBancos {
-	bancoA, bancoB
+public class Dinheiro extends PagamentoChain {
+
+	public Dinheiro() {
+		super(IDPagamento.dinheiro);
+	}
+
+	@Override
+	protected void efetuaPagamento() {
+		System.out.println("Pagamento realizado com dinheiro");
+	}
 }
