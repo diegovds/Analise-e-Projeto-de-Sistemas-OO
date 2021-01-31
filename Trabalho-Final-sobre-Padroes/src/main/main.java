@@ -63,7 +63,7 @@ public class main {
             System.out.println(" - R$" + preco);
             total = total + preco;
 
-            System.out.println("\nTotal da compra = " +total+ "\n");
+            System.out.println("\nTotal da compra = " + total + "\n");
             
             pagamentos.efetuarPagamento(IDPagamento.dinheiro);
 
