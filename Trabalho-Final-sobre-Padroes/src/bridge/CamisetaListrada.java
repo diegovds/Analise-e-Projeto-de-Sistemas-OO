@@ -9,15 +9,15 @@ package bridge;
  *
  * @author diego
  */
-public class CamisetaMarcaZ extends Camiseta {
+public class CamisetaListrada extends Camiseta {
     
-    public CamisetaMarcaZ(TamanhoCamiseta c) {
+    public CamisetaListrada(TamanhoCamiseta c) {
         super(c);
     }
     
     @Override
     public void exibe() {
-        exibeCamiseta("Camiseta Marca Z");
+        exibeCamiseta("Camiseta Listrada");
     }
     
 }
