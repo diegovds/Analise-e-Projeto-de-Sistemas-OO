@@ -2,9 +2,9 @@ package main;
 
 import Proxy.BancoProxy;
 import bridge.Camiseta;
-import bridge.CamisetaMarcaX;
-import bridge.CamisetaMarcaY;
-import bridge.CamisetaMarcaZ;
+import bridge.CamisetaEstampada;
+import bridge.CamisetaListrada;
+import bridge.CamisetaLisa;
 import bridge.TamanhoCamisetaP;
 import bridge.TamanhoCamisetaM;
 import bridge.TamanhoCamisetaG;
@@ -30,15 +30,15 @@ public class main {
             System.out.println("Usuário: " + banco.getUsuario());
             System.out.println("Lista de compras:\n");
             
-            Camiseta camiseta = new CamisetaMarcaX(new TamanhoCamisetaP());
+            Camiseta camiseta = new CamisetaEstampada(new TamanhoCamisetaP());
             camiseta.exibe();
-            camiseta = new CamisetaMarcaX(new TamanhoCamisetaM());
-            camiseta.exibe();
-            
-            camiseta = new CamisetaMarcaY(new TamanhoCamisetaG());
+            camiseta = new CamisetaEstampada(new TamanhoCamisetaM());
             camiseta.exibe();
             
-            camiseta = new CamisetaMarcaZ(new TamanhoCamisetaM());
+            camiseta = new CamisetaLisa(new TamanhoCamisetaG());
+            camiseta.exibe();
+            
+            camiseta = new CamisetaListrada(new TamanhoCamisetaM());
             camiseta.exibe();
         
         } else {
