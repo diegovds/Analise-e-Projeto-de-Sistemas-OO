@@ -5,9 +5,9 @@ import bridge.Camiseta;
 import bridge.CamisetaMarcaX;
 import bridge.CamisetaMarcaY;
 import bridge.CamisetaMarcaZ;
-import bridge.TamanhoCamisetaG;
-import bridge.TamanhoCamisetaM;
 import bridge.TamanhoCamisetaP;
+import bridge.TamanhoCamisetaM;
+import bridge.TamanhoCamisetaG;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
