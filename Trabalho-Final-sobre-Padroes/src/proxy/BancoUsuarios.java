@@ -4,7 +4,7 @@ public class BancoUsuarios {
     private String nome;
 
     public BancoUsuarios() {
-        nome = "Marcos Vieira";
+        nome = "Marcos Vasconcelos";
     }
 
     String getUsuario() {
