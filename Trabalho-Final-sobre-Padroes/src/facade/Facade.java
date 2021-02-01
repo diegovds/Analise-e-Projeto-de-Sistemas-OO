@@ -17,6 +17,11 @@ import bridge.CamisetaLisa;
 import bridge.TamanhoCamisetaP;
 import bridge.TamanhoCamisetaM;
 import bridge.TamanhoCamisetaG;
+import decorator.CamisetaNova;
+import decorator.CamisetaPadrao;
+import decorator.Estampada;
+import decorator.Lisa;
+import decorator.Listrada;
 
 /**
  *
@@ -36,25 +41,25 @@ public class Facade {
         Camiseta camiseta = new CamisetaEstampada(new TamanhoCamisetaP());
         camiseta.exibe();
         preco = camiseta.getPreco();
-        System.out.println(" - R$" + preco);
+        System.out.println(" = R$" + preco);
         total = total + preco;
 
         camiseta = new CamisetaEstampada(new TamanhoCamisetaG());
         camiseta.exibe();
         preco = camiseta.getPreco();
-        System.out.println(" - R$" + preco);
+        System.out.println(" = R$" + preco);
         total = total + preco;
 
         camiseta = new CamisetaLisa(new TamanhoCamisetaM());
         camiseta.exibe();
         preco = camiseta.getPreco();
-        System.out.println(" - R$" + preco);
+        System.out.println(" = R$" + preco);
         total = total + preco;
 
         camiseta = new CamisetaListrada(new TamanhoCamisetaP());
         camiseta.exibe();
         preco = camiseta.getPreco();
-        System.out.println(" - R$" + preco);
+        System.out.println(" = R$" + preco);
         total = total + preco;
 
         return total;
@@ -66,6 +71,38 @@ public class Facade {
         pagamentos.setNext(new Cartao());
 
         pagamentos.efetuarPagamento(IDPagamento.dinheiro);
+    }
+
+    public double custo_das_camisetas() {
+        double total = 0.0, preco;
+
+        CamisetaPadrao camiseta0 = new CamisetaNova();
+        camiseta0 = new Estampada(camiseta0);
+        preco = camiseta0.getPreco();
+        System.out.println(camiseta0.getNome() + " = R$" + preco);
+        total = total + preco;
+        
+        CamisetaPadrao camiseta1 = new CamisetaNova();
+        camiseta1 = new Estampada(camiseta1);
+        preco = camiseta1.getPreco();
+        System.out.println(camiseta1.getNome() + " = R$" + preco);
+        total = total + preco;
+        
+        CamisetaPadrao camiseta2 = new CamisetaNova();
+        camiseta2 = new Lisa(camiseta2);
+        preco = camiseta2.getPreco();
+        System.out.println(camiseta2.getNome() + " = R$" + preco);
+        total = total + preco;
+        
+        CamisetaPadrao camiseta3 = new CamisetaNova();
+        camiseta3 = new Listrada(camiseta3);
+        preco = camiseta3.getPreco();
+        System.out.println(camiseta3.getNome() + " = R$" + preco);
+        total = total + preco;
+        
+        
+        return total;
+
     }
 
 }
