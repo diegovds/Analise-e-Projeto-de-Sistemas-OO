@@ -18,7 +18,7 @@ public class Cartao extends PagamentoChain {
 
 	@Override
 	protected void efetuaPagamento() {
-		System.out.println("Pagamento realizado com cartão");
+		System.out.println("Pagamento recebido com cartão");
 	}
 
 }
