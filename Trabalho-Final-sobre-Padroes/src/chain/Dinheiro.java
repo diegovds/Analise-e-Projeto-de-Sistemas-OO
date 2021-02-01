@@ -18,6 +18,6 @@ public class Dinheiro extends PagamentoChain {
 
 	@Override
 	protected void efetuaPagamento() {
-		System.out.println("Pagamento recebido com dinheiro");
+		System.out.println("\nPagamento da venda recebido com dinheiro");
 	}
 }
