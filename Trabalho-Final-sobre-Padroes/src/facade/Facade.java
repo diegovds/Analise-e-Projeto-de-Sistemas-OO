@@ -6,11 +6,17 @@
 package facade;
 
 import Proxy.BancoProxy;
-import bridge.Camiseta;
 import chain.Cartao;
 import chain.Dinheiro;
 import chain.IDPagamento;
 import chain.PagamentoChain;
+import bridge.Camiseta;
+import bridge.CamisetaEstampada;
+import bridge.CamisetaListrada;
+import bridge.CamisetaLisa;
+import bridge.TamanhoCamisetaP;
+import bridge.TamanhoCamisetaM;
+import bridge.TamanhoCamisetaG;
 
 /**
  *
@@ -24,22 +30,42 @@ public class Facade {
         return banco.getUsuario();
     }
 
-    public double registra_venda(Camiseta camiseta) {
-        double preco;
+    public double registra_venda() {
+        double preco, total = 0.0;
 
+        Camiseta camiseta = new CamisetaEstampada(new TamanhoCamisetaP());
         camiseta.exibe();
         preco = camiseta.getPreco();
         System.out.println(" - R$" + preco);
+        total = total + preco;
 
-        return preco;
+        camiseta = new CamisetaEstampada(new TamanhoCamisetaG());
+        camiseta.exibe();
+        preco = camiseta.getPreco();
+        System.out.println(" - R$" + preco);
+        total = total + preco;
+
+        camiseta = new CamisetaLisa(new TamanhoCamisetaM());
+        camiseta.exibe();
+        preco = camiseta.getPreco();
+        System.out.println(" - R$" + preco);
+        total = total + preco;
+
+        camiseta = new CamisetaListrada(new TamanhoCamisetaP());
+        camiseta.exibe();
+        preco = camiseta.getPreco();
+        System.out.println(" - R$" + preco);
+        total = total + preco;
+
+        return total;
 
     }
 
-    public void registra_pagamento(IDPagamento p) throws Exception {
+    public void registra_pagamento() throws Exception {
         PagamentoChain pagamentos = new Dinheiro();
         pagamentos.setNext(new Cartao());
 
-        pagamentos.efetuarPagamento(p);
+        pagamentos.efetuarPagamento(IDPagamento.dinheiro);
     }
 
 }
