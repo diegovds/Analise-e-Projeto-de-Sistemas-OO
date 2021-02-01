@@ -9,43 +9,42 @@ package chain;
  *
  * @author diego
  */
-
 public abstract class PagamentoChain {
 
-	protected PagamentoChain next;
-	protected IDPagamento identificadorDoPagamento;
+    protected PagamentoChain next;
+    protected IDPagamento identificadorDoPagamento;
 
-	public PagamentoChain(IDPagamento id) {
-		next = null;
-		identificadorDoPagamento = id;
-	}
+    public PagamentoChain(IDPagamento id) {
+        next = null;
+        identificadorDoPagamento = id;
+    }
 
-	public void setNext(PagamentoChain forma) {
-		if (next == null) {
-			next = forma;
-		} else {
-			next.setNext(forma);
-		}
-	}
+    public void setNext(PagamentoChain forma) {
+        if (next == null) {
+            next = forma;
+        } else {
+            next.setNext(forma);
+        }
+    }
 
-	public void efetuarPagamento(IDPagamento id) throws Exception {
-		if (podeEfetuarPagamento(id)) {
-			efetuaPagamento();
-		} else {
-			if (next == null) {
-				throw new Exception("Forma de pagamento não cadastrada");
-			}
-			next.efetuarPagamento(id);
-		}
-	}
+    public void efetuarPagamento(IDPagamento id) throws Exception {
+        if (podeEfetuarPagamento(id)) {
+            efetuaPagamento();
+        } else {
+            if (next == null) {
+                throw new Exception("Forma de pagamento não cadastrada");
+            }
+            next.efetuarPagamento(id);
+        }
+    }
 
-	private boolean podeEfetuarPagamento(IDPagamento id) {
-		if (identificadorDoPagamento == id) {
-			return true;
-		}
-		return false;
-	}
+    private boolean podeEfetuarPagamento(IDPagamento id) {
+        if (identificadorDoPagamento == id) {
+            return true;
+        }
+        return false;
+    }
 
-	protected abstract void efetuaPagamento();
+    protected abstract void efetuaPagamento();
 
 }

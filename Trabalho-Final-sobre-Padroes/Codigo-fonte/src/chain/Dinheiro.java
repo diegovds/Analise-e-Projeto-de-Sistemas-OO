@@ -9,15 +9,14 @@ package chain;
  *
  * @author diego
  */
-
 public class Dinheiro extends PagamentoChain {
 
-	public Dinheiro() {
-		super(IDPagamento.dinheiro);
-	}
+    public Dinheiro() {
+        super(IDPagamento.dinheiro);
+    }
 
-	@Override
-	protected void efetuaPagamento() {
-		System.out.println("\nPagamento da venda recebido com dinheiro");
-	}
+    @Override
+    protected void efetuaPagamento() {
+        System.out.println("\nPagamento da venda recebido com dinheiro");
+    }
 }

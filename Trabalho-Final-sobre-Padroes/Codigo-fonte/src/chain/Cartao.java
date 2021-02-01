@@ -9,16 +9,15 @@ package chain;
  *
  * @author diego
  */
-
 public class Cartao extends PagamentoChain {
 
-	public Cartao() {
-		super(IDPagamento.cartao);
-	}
+    public Cartao() {
+        super(IDPagamento.cartao);
+    }
 
-	@Override
-	protected void efetuaPagamento() {
-		System.out.println("\nPagamento da venda recebido com cartão");
-	}
+    @Override
+    protected void efetuaPagamento() {
+        System.out.println("\nPagamento da venda recebido com cartão");
+    }
 
 }
