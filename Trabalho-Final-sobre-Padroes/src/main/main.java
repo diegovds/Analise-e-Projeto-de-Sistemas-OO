@@ -1,6 +1,5 @@
 package main;
 
-import Proxy.BancoProxy;
 import bridge.Camiseta;
 import bridge.CamisetaEstampada;
 import bridge.CamisetaListrada;
@@ -12,6 +11,7 @@ import chain.Cartao;
 import chain.Dinheiro;
 import chain.IDPagamento;
 import chain.PagamentoChain;
+import facade.Facade;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -29,14 +29,13 @@ public class main {
      */
     public static void main(String[] args) throws Exception {
 
+        Facade f = new Facade();
         double total = 0.0, preco;
         PagamentoChain pagamentos = new Dinheiro();
         pagamentos.setNext(new Cartao());
 
-        BancoProxy banco = new BancoProxy("marcos", "12345");
-
-        if (banco.getUsuario() != null) {
-            System.out.println("Usuário: " + banco.getUsuario());
+        if (f.autenticacao_usuario("marcos", "12345") != null) {
+            System.out.println("Usuário: " + f.autenticacao_usuario("marcos", "12345"));
             System.out.println("\nLista de vendas:");
 
             Camiseta camiseta = new CamisetaEstampada(new TamanhoCamisetaP());
@@ -44,7 +43,7 @@ public class main {
             preco = camiseta.getPreco();
             System.out.println(" - R$" + preco);
             total = total + preco;
-            
+
             camiseta = new CamisetaEstampada(new TamanhoCamisetaM());
             camiseta.exibe();
             preco = camiseta.getPreco();
@@ -64,7 +63,7 @@ public class main {
             total = total + preco;
 
             System.out.println("\nTotal da venda = " + total + "\n");
-            
+
             pagamentos.efetuarPagamento(IDPagamento.dinheiro);
 
         } else {
