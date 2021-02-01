@@ -9,7 +9,6 @@ package chain;
  *
  * @author diego
  */
-
 public enum IDPagamento {
-	dinheiro, cartao
+    dinheiro, cartao
 }
