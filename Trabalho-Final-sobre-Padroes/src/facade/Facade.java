@@ -17,7 +17,7 @@ import bridge.CamisetaLisa;
 import bridge.TamanhoCamisetaP;
 import bridge.TamanhoCamisetaM;
 import bridge.TamanhoCamisetaG;
-import decorator.CamisetaNova;
+import decorator.CamisetaBase;
 import decorator.CamisetaPadrao;
 import decorator.Estampada;
 import decorator.Lisa;
@@ -76,25 +76,25 @@ public class Facade {
     public double custo_das_camisetas() {
         double total = 0.0, preco;
 
-        CamisetaPadrao camiseta0 = new CamisetaNova();
+        CamisetaPadrao camiseta0 = new CamisetaBase();
         camiseta0 = new Estampada(camiseta0);
         preco = camiseta0.getPreco();
         System.out.println(camiseta0.getNome() + " = R$" + preco);
         total = total + preco;
 
-        CamisetaPadrao camiseta1 = new CamisetaNova();
+        CamisetaPadrao camiseta1 = new CamisetaBase();
         camiseta1 = new Estampada(camiseta1);
         preco = camiseta1.getPreco();
         System.out.println(camiseta1.getNome() + " = R$" + preco);
         total = total + preco;
 
-        CamisetaPadrao camiseta2 = new CamisetaNova();
+        CamisetaPadrao camiseta2 = new CamisetaBase();
         camiseta2 = new Lisa(camiseta2);
         preco = camiseta2.getPreco();
         System.out.println(camiseta2.getNome() + " = R$" + preco);
         total = total + preco;
 
-        CamisetaPadrao camiseta3 = new CamisetaNova();
+        CamisetaPadrao camiseta3 = new CamisetaBase();
         camiseta3 = new Listrada(camiseta3);
         preco = camiseta3.getPreco();
         System.out.println(camiseta3.getNome() + " = R$" + preco);
