@@ -9,9 +9,9 @@ package decorator;
  *
  * @author diego
  */
-public class CamisetaNova extends CamisetaPadrao {
+public class CamisetaBase extends CamisetaPadrao {
 
-    public CamisetaNova() {
+    public CamisetaBase() {
         nome = "Camiseta";
         preco = 8.0;
     }
