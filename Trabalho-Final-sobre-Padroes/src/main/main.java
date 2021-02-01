@@ -7,10 +7,7 @@ import bridge.CamisetaLisa;
 import bridge.TamanhoCamisetaP;
 import bridge.TamanhoCamisetaM;
 import bridge.TamanhoCamisetaG;
-import chain.Cartao;
-import chain.Dinheiro;
 import chain.IDPagamento;
-import chain.PagamentoChain;
 import facade.Facade;
 
 /*
@@ -30,41 +27,27 @@ public class main {
     public static void main(String[] args) throws Exception {
 
         Facade f = new Facade();
-        double total = 0.0, preco;
-        PagamentoChain pagamentos = new Dinheiro();
-        pagamentos.setNext(new Cartao());
-
+        double total = 0.0;
+        
         if (f.autenticacao_usuario("marcos", "12345") != null) {
             System.out.println("Usuário: " + f.autenticacao_usuario("marcos", "12345"));
             System.out.println("\nLista de vendas:");
 
             Camiseta camiseta = new CamisetaEstampada(new TamanhoCamisetaP());
-            camiseta.exibe();
-            preco = camiseta.getPreco();
-            System.out.println(" - R$" + preco);
-            total = total + preco;
+            total = total + f.registra_venda(camiseta);
 
-            camiseta = new CamisetaEstampada(new TamanhoCamisetaM());
-            camiseta.exibe();
-            preco = camiseta.getPreco();
-            System.out.println(" - R$" + preco);
-            total = total + preco;
+            camiseta = new CamisetaEstampada(new TamanhoCamisetaG());
+            total = total + f.registra_venda(camiseta);
 
-            camiseta = new CamisetaLisa(new TamanhoCamisetaG());
-            camiseta.exibe();
-            preco = camiseta.getPreco();
-            System.out.println(" - R$" + preco);
-            total = total + preco;
+            camiseta = new CamisetaLisa(new TamanhoCamisetaM());
+            total = total + f.registra_venda(camiseta);
 
-            camiseta = new CamisetaListrada(new TamanhoCamisetaM());
-            camiseta.exibe();
-            preco = camiseta.getPreco();
-            System.out.println(" - R$" + preco);
-            total = total + preco;
+            camiseta = new CamisetaListrada(new TamanhoCamisetaP());
+            total = total + f.registra_venda(camiseta);
 
             System.out.println("\nTotal da venda = " + total + "\n");
 
-            pagamentos.efetuarPagamento(IDPagamento.dinheiro);
+            f.registra_pagamento(IDPagamento.dinheiro);
 
         } else {
             System.out.println("Usuário não encontrado");
