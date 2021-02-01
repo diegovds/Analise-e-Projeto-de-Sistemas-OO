@@ -6,6 +6,11 @@
 package facade;
 
 import Proxy.BancoProxy;
+import bridge.Camiseta;
+import chain.Cartao;
+import chain.Dinheiro;
+import chain.IDPagamento;
+import chain.PagamentoChain;
 
 /**
  *
@@ -18,5 +23,23 @@ public class Facade {
 
         return banco.getUsuario();
     }
-    
+
+    public double registra_venda(Camiseta camiseta) {
+        double preco;
+
+        camiseta.exibe();
+        preco = camiseta.getPreco();
+        System.out.println(" - R$" + preco);
+
+        return preco;
+
+    }
+
+    public void registra_pagamento(IDPagamento p) throws Exception {
+        PagamentoChain pagamentos = new Dinheiro();
+        pagamentos.setNext(new Cartao());
+
+        pagamentos.efetuarPagamento(p);
+    }
+
 }
