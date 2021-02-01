@@ -37,7 +37,7 @@ public class main {
 
         if (banco.getUsuario() != null) {
             System.out.println("Usuário: " + banco.getUsuario());
-            System.out.println("\nLista de compras:");
+            System.out.println("\nLista de vendas:");
 
             Camiseta camiseta = new CamisetaEstampada(new TamanhoCamisetaP());
             camiseta.exibe();
@@ -63,12 +63,12 @@ public class main {
             System.out.println(" - R$" + preco);
             total = total + preco;
 
-            System.out.println("\nTotal da compra = " + total + "\n");
+            System.out.println("\nTotal da venda = " + total + "\n");
             
             pagamentos.efetuarPagamento(IDPagamento.dinheiro);
 
         } else {
-            System.out.println("Usuário sem acesso");
+            System.out.println("Usuário não encontrado");
         }
         System.out.println();
     }
