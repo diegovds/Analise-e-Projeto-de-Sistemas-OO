@@ -18,15 +18,23 @@ public class main {
      */
     public static void main(String[] args) throws Exception {
 
+        double venda, custo;
         Facade f = new Facade();
         
         if (f.autenticacao_usuario("marcos", "12345") != null) {
             System.out.println("Usuário: " + f.autenticacao_usuario("marcos", "12345"));
             System.out.println("\nLista de vendas:");
 
-            System.out.println("\nTotal da venda = " + f.registra_venda() + "\n");
+            venda = f.registra_venda();
+            System.out.println("\nTotal da venda = R$" + venda + "\n");
 
             f.registra_pagamento();
+            
+            System.out.println("\nInvestimento:");
+            custo = f.custo_das_camisetas();
+            System.out.println("\nTotal do custo = R$" + custo);
+            
+            System.out.println("\nTotal do lucro com as vendas = R$" + (venda - custo));
 
         } else {
             System.out.println("Usuário não encontrado");
