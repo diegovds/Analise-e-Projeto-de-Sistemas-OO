@@ -81,26 +81,25 @@ public class Facade {
         preco = camiseta0.getPreco();
         System.out.println(camiseta0.getNome() + " = R$" + preco);
         total = total + preco;
-        
+
         CamisetaPadrao camiseta1 = new CamisetaNova();
         camiseta1 = new Estampada(camiseta1);
         preco = camiseta1.getPreco();
         System.out.println(camiseta1.getNome() + " = R$" + preco);
         total = total + preco;
-        
+
         CamisetaPadrao camiseta2 = new CamisetaNova();
         camiseta2 = new Lisa(camiseta2);
         preco = camiseta2.getPreco();
         System.out.println(camiseta2.getNome() + " = R$" + preco);
         total = total + preco;
-        
+
         CamisetaPadrao camiseta3 = new CamisetaNova();
         camiseta3 = new Listrada(camiseta3);
         preco = camiseta3.getPreco();
         System.out.println(camiseta3.getNome() + " = R$" + preco);
         total = total + preco;
-        
-        
+
         return total;
 
     }
