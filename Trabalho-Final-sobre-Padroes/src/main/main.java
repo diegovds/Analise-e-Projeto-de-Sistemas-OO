@@ -26,13 +26,12 @@ public class main {
             System.out.println("\nLista de vendas:");
 
             venda = f.registra_venda();
-            System.out.println("\nTotal da venda = R$" + venda + "\n");
-
             f.registra_pagamento();
+            System.out.println("\nTotal da venda = R$" + venda);
             
             System.out.println("\nInvestimento:");
             custo = f.custo_das_camisetas();
-            System.out.println("\nTotal do custo = R$" + custo);
+            System.out.println("\nTotal do investimento = R$" + custo);
             
             System.out.println("\nTotal do lucro com as vendas = R$" + (venda - custo));
 
